@@ -1,3 +1,14 @@
 <h1>
   {{title}}
 </h1>
+<div class="recipe">
+  <ol>
+    <li *ngFor="let currentRecipe of recipes"><h3>{{currentRecipe.title}}</h3>
+      <ul>
+        <li>{{currentRecipe.ingredients}}</li>
+        <li>{{currentRecipe.directions}}</li>
+      </ul>
+    </li>
+
+  </ol>
+</div>
