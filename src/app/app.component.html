@@ -1,15 +1,31 @@
 <h1>
   {{title}}
 </h1>
+<div class="intro">
+  <h2>Hi there,{{userName}}!</h2>
+  <form>
+    <input [(ngModel)]="userName" type="text" name="user">
+  </form>
+</div>
 <div class="recipe">
   <ol>
-    <li *ngFor="let currentRecipe of recipes"><h3>{{currentRecipe.title}}</h3>
+    <li [class]="ratingColor(currentRecipe)" *ngFor="let currentRecipe of recipes"><h3>{{currentRecipe.title}}</h3><button (click)="editRecipe(currentRecipe)">Edit!</button>
       <ul>
         <li>{{currentRecipe.ingredients}}</li>
         <li>{{currentRecipe.directions}}</li>
       </ul>
     </li>
-
   </ol>
 </div>
-<p>hello!</p>
+<div *ngIf="selectedRecipe" class="edit">
+  <h3>{{selectedRecipe.title}}</h3>
+  <h4>Edit Recipe</h4>
+  <label>Enter a new title:</label>
+  <input [(ngModel)]="selectedRecipe.title"><br>
+  <label>Enter recipe deliciousness rating: (1-3)</label>
+  <br>
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="1"> 1 (GROSS)<br>
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="2"> 2 (ALRIGHT)<br>
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="3"> 3 (DELISH)<br>
+  <button (click)="finishedEditing()">Done</button>
+</div>
