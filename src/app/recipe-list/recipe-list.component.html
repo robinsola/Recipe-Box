@@ -1,0 +1,8 @@
+<ol>
+  <li [class]="ratingColor(currentRecipe)" *ngFor="let currentRecipe of childRecipeList"><h3>{{currentRecipe.title}}</h3><button (click)="editButtonClicked(currentRecipe)">Edit!</button>
+    <ul>
+      <li>{{currentRecipe.ingredients}}</li>
+      <li>{{currentRecipe.directions}}</li>
+    </ul>
+  </li>
+</ol>
