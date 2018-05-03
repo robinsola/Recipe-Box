@@ -23,4 +23,8 @@ export class AppComponent {
   finishedEditing() {
     this.selectedRecipe = null;
   }
+
+  addRecipe(newRecipe: Recipe) {
+    this.masterRecipeList.push(newRecipe);
+  }
 }

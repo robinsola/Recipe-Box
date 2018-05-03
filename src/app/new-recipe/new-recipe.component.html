@@ -1,0 +1,20 @@
+<div class="new">
+  <h1>New Recipe</h1>
+  <div>
+    <label>Enter Recipe Name:</label>
+    <input #newTitle><br>
+    <label>Enter Ingredients:</label>
+    <input #newIngredients><br>
+    <label>Enter Directions:</label>
+    <input #newDirections>
+  </div>
+  <div>
+    <label>Delish Level:</label>
+    <select #newRating>
+      <option [value]="1">Gross</option>
+      <option [value]="2">Alright</option>
+      <option [value]="3">Delish</option>
+    </select>
+    <button (click)="submitForm(newTitle.value, newIngredients.value, newDirections.value, newRating.value); newTitle.value='';">add</button>
+  </div>
+</div>

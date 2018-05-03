@@ -9,6 +9,11 @@ import { Recipe } from '../models/recipe.model';
 
 export class EditRecipeComponent {
   @Input() childSelectedRecipe: Recipe;
+  @Output() clickedDone = new EventEmitter();
+
+  finishedEditing(){
+    this.clickedDone.emit();
+  }
 }
 
 // export class EditRecipeComponent implements OnInit {
